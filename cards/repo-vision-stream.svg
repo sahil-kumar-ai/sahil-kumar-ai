@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 840 132" width="840" height="132" class="root" role="img">
+  
+  <style>
+    
+    .root { font-family: 'BrandSans', system-ui, sans-serif; -webkit-font-smoothing: antialiased; fill: #F4F4F5; }
+    .display { font-size: 24px; font-weight: 600; letter-spacing: -0.02em; }
+    .title { font-size: 15px; font-weight: 500; }
+    .body { font-size: 14px; font-weight: 400; fill: #A1A1AA; }
+    .label { font-size: 13px; font-weight: 400; fill: #52525B; }
+    .metric { font-size: 20px; font-weight: 500; font-variant-numeric: tabular-nums; }
+    
+    @keyframes fadeUp { 0% { opacity: 0; transform: translateY(8px); } 100% { opacity: 1; transform: translateY(0); } }
+    .card-enter { opacity: 0; animation: fadeUp 0.6s cubic-bezier(0.2, 0.8, 0.2, 1) 0.76s forwards; }
+    .fade-up { opacity: 0; animation: fadeUp 0.6s cubic-bezier(0.2, 0.8, 0.2, 1) calc(0.76s + var(--d, 0.1s)) forwards; }
+    
+    @media (prefers-reduced-motion: reduce) { .card-enter, .fade-up { opacity: 1 !important; transform: none !important; animation: none !important; } }
+  </style>
+
+  <rect width="840" height="132" fill="#0A0A0A" />
+  <g class="card-enter">
+    <rect x="1" y="1" width="838" height="130" rx="16" fill="#121212" stroke="#27272A" stroke-width="1" />
+    
+    <g class="fade-up" style="--d: 0.05s">
+      <text x="24" y="40" class="title">vision-stream-pipeline</text>
+      <text x="24" y="66" class="body">Sub-15ms real-time edge video inference pipeline using TensorRT and async WebRTC frame queues.</text>
+      <text x="24" y="104" class="label">Python / C++   ·   890 stars</text>
+    </g>
+    <g class="fade-up" style="--d: 0.15s">
+      <text x="648" y="32" class="label">12-week activity</text>
+      <polyline fill="none" stroke="#38BDF8" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" points="648.0,86.0 662.5,80.4 677.1,75.7 691.6,77.6 706.2,70.1 720.7,64.5 735.3,67.3 749.8,60.7 764.4,54.2 778.9,57.0 793.5,47.6 808.0,42.0" />
+    </g>
+    
+  </g>
+</svg>
