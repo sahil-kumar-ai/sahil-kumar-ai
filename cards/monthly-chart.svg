@@ -1,0 +1,280 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 840 230" width="840" height="230" class="root" role="img">
+  
+  <defs>
+    <linearGradient id="cardSurface" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#111827" />
+      <stop offset="100%" stop-color="#0D1320" />
+    </linearGradient>
+    <linearGradient id="brandBorder" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#38BDF8" stop-opacity="0.55" />
+      <stop offset="45%" stop-color="#FFFFFF" stop-opacity="0.12" />
+      <stop offset="100%" stop-color="#818CF8" stop-opacity="0.55" />
+    </linearGradient>
+    <linearGradient id="brandAccent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#38BDF8" />
+      <stop offset="100%" stop-color="#818CF8" />
+    </linearGradient>
+    <linearGradient id="barGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#38BDF8" />
+      <stop offset="100%" stop-color="#818CF8" stop-opacity="0.35" />
+    </linearGradient>
+    <radialGradient id="ambientGlow" cx="85%" cy="15%" r="65%">
+      <stop offset="0%" stop-color="#38BDF8" stop-opacity="0.14" />
+      <stop offset="50%" stop-color="#818CF8" stop-opacity="0.06" />
+      <stop offset="100%" stop-color="#0B0F17" stop-opacity="0" />
+    </radialGradient>
+  </defs>
+  <style>
+    
+    .root {
+      font-family: 'BrandSans', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Inter', system-ui, sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+    .display {
+      font-size: 30px;
+      font-weight: 700;
+      letter-spacing: -0.025em;
+      fill: #F8FAFC;
+    }
+    .title {
+      font-size: 17px;
+      font-weight: 600;
+      letter-spacing: -0.015em;
+      fill: #F8FAFC;
+    }
+    .body {
+      font-size: 14px;
+      font-weight: 400;
+      letter-spacing: 0em;
+      fill: #94A3B8;
+    }
+    .label {
+      font-size: 10.5px;
+      font-weight: 600;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      fill: #64748B;
+    }
+    .metric {
+      font-size: 22px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      font-variant-numeric: tabular-nums;
+      fill: #F8FAFC;
+    }
+    
+        @keyframes cardReveal {
+          0% { opacity: 0; transform: translateY(10px); }
+          100% { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes fadeUp {
+          0% { opacity: 0; transform: translateY(6px); }
+          100% { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes pulseGlow {
+          0%, 100% { opacity: 0.95; transform: scale(1); }
+          50% { opacity: 0.45; transform: scale(0.92); }
+        }
+        .card-enter {
+          opacity: 0;
+          animation: cardReveal 0.65s cubic-bezier(0.22, 1, 0.36, 1) 0.44s forwards;
+        }
+        .fade-up {
+          opacity: 0;
+          animation: fadeUp 0.55s cubic-bezier(0.22, 1, 0.36, 1) calc(0.44s + var(--d, 0.12s)) forwards;
+        }
+        .pulse-dot {
+          transform-box: fill-box;
+          transform-origin: center;
+          animation: pulseGlow 2.8s ease-in-out infinite;
+        }
+        
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-delay: 0s !important;
+        animation-iteration-count: 1 !important;
+        transition: none !important;
+      }
+      .card-enter, .fade-up {
+        opacity: 1 !important;
+        transform: none !important;
+      }
+    }
+  </style>
+
+  <rect width="840" height="230" rx="18" fill="#0B0F17" />
+  <g class="card-enter">
+    <rect x="1" y="1" width="838" height="228" rx="17" fill="url(#cardSurface)" stroke="url(#brandBorder)" stroke-width="1.2" />
+    <rect x="1" y="1" width="838" height="228" rx="17" fill="url(#ambientGlow)" />
+    <line x1="24" y1="1.2" x2="816" y2="1.2" stroke="#FFFFFF" stroke-opacity="0.16" stroke-width="1" />
+    
+    <g class="fade-up" style="--d: 0.05s">
+      <text x="32" y="36" class="label" fill="#38BDF8">TELEMETRY · MONTHLY VELOCITY</text>
+      <text x="32" y="58" class="title">Contributions per Month &amp; Consistency</text>
+    </g>
+    
+        <g>
+          <rect x="40.2" y="78" width="22.7" height="112" rx="5" fill="#1E293B" opacity="0.45" />
+          <rect x="40.2" y="190" width="22.7" height="0" rx="5" fill="url(#barGrad)">
+            
+            <animate attributeName="y" from="190" to="80.7" dur="0.55s" begin="0.5s" fill="freeze" calcMode="spline" keySplines="0.22 1 0.36 1" keyTimes="0;1" />
+            <animate attributeName="height" from="0" to="109.3" dur="0.55s" begin="0.5s" fill="freeze" calcMode="spline" keySplines="0.22 1 0.36 1" keyTimes="0;1" />
+            
+          </rect>
+          <text x="51.6" y="208" text-anchor="middle" class="label" font-size="9.5">Dec</text>
+        </g>
+        
+        <g>
+          <rect x="79.4" y="78" width="22.7" height="112" rx="5" fill="#1E293B" opacity="0.45" />
+          <rect x="79.4" y="190" width="22.7" height="0" rx="5" fill="url(#barGrad)">
+            
+            <animate attributeName="y" from="190" to="95.2" dur="0.55s" begin="0.54s" fill="freeze" calcMode="spline" keySplines="0.22 1 0.36 1" keyTimes="0;1" />
+            <animate attributeName="height" from="0" to="94.8" dur="0.55s" begin="0.54s" fill="freeze" calcMode="spline" keySplines="0.22 1 0.36 1" keyTimes="0;1" />
+            
+          </rect>
+          <text x="90.8" y="208" text-anchor="middle" class="label" font-size="9.5">Jan</text>
+        </g>
+        
+        <g>
+          <rect x="118.6" y="78" width="22.7" height="112" rx="5" fill="#1E293B" opacity="0.45" />
+          <rect x="118.6" y="190" width="22.7" height="0" rx="5" fill="url(#barGrad)">
+            
+            <animate attributeName="y" from="190" to="105.8" dur="0.55s" begin="0.57s" fill="freeze" calcMode="spline" keySplines="0.22 1 0.36 1" keyTimes="0;1" />
+            <animate attributeName="height" from="0" to="84.2" dur="0.55s" begin="0.57s" fill="freeze" calcMode="spline" keySplines="0.22 1 0.36 1" keyTimes="0;1" />
+            
+          </rect>
+          <text x="130.0" y="208" text-anchor="middle" class="label" font-size="9.5">Feb</text>
+        </g>
+        
+        <g>
+          <rect x="157.7" y="78" width="22.7" height="112" rx="5" fill="#1E293B" opacity="0.45" />
+          <rect x="157.7" y="190" width="22.7" height="0" rx="5" fill="url(#barGrad)">
+            
+            <animate attributeName="y" from="190" to="82.0" dur="0.55s" begin="0.6s" fill="freeze" calcMode="spline" keySplines="0.22 1 0.36 1" keyTimes="0;1" />
+            <animate attributeName="height" from="0" to="108.0" dur="0.55s" begin="0.6s" fill="freeze" calcMode="spline" keySplines="0.22 1 0.36 1" keyTimes="0;1" />
+            
+          </rect>
+          <text x="169.1" y="208" text-anchor="middle" class="label" font-size="9.5">Mar</text>
+        </g>
+        
+        <g>
+          <rect x="196.9" y="78" width="22.7" height="112" rx="5" fill="#1E293B" opacity="0.45" />
+          <rect x="196.9" y="190" width="22.7" height="0" rx="5" fill="url(#barGrad)">
+            
+            <animate attributeName="y" from="190" to="82.0" dur="0.55s" begin="0.64s" fill="freeze" calcMode="spline" keySplines="0.22 1 0.36 1" keyTimes="0;1" />
+            <animate attributeName="height" from="0" to="108.0" dur="0.55s" begin="0.64s" fill="freeze" calcMode="spline" keySplines="0.22 1 0.36 1" keyTimes="0;1" />
+            
+          </rect>
+          <text x="208.3" y="208" text-anchor="middle" class="label" font-size="9.5">Apr</text>
+        </g>
+        
+        <g>
+          <rect x="236.1" y="78" width="22.7" height="112" rx="5" fill="#1E293B" opacity="0.45" />
+          <rect x="236.1" y="190" width="22.7" height="0" rx="5" fill="url(#barGrad)">
+            
+            <animate attributeName="y" from="190" to="105.8" dur="0.55s" begin="0.68s" fill="freeze" calcMode="spline" keySplines="0.22 1 0.36 1" keyTimes="0;1" />
+            <animate attributeName="height" from="0" to="84.2" dur="0.55s" begin="0.68s" fill="freeze" calcMode="spline" keySplines="0.22 1 0.36 1" keyTimes="0;1" />
+            
+          </rect>
+          <text x="247.5" y="208" text-anchor="middle" class="label" font-size="9.5">May</text>
+        </g>
+        
+        <g>
+          <rect x="275.2" y="78" width="22.7" height="112" rx="5" fill="#1E293B" opacity="0.45" />
+          <rect x="275.2" y="190" width="22.7" height="0" rx="5" fill="url(#barGrad)">
+            
+            <animate attributeName="y" from="190" to="91.9" dur="0.55s" begin="0.71s" fill="freeze" calcMode="spline" keySplines="0.22 1 0.36 1" keyTimes="0;1" />
+            <animate attributeName="height" from="0" to="98.1" dur="0.55s" begin="0.71s" fill="freeze" calcMode="spline" keySplines="0.22 1 0.36 1" keyTimes="0;1" />
+            
+          </rect>
+          <text x="286.6" y="208" text-anchor="middle" class="label" font-size="9.5">Jun</text>
+        </g>
+        
+        <g>
+          <rect x="314.4" y="78" width="22.7" height="112" rx="5" fill="#1E293B" opacity="0.45" />
+          <rect x="314.4" y="190" width="22.7" height="0" rx="5" fill="url(#barGrad)">
+            
+            <animate attributeName="y" from="190" to="81.3" dur="0.55s" begin="0.74s" fill="freeze" calcMode="spline" keySplines="0.22 1 0.36 1" keyTimes="0;1" />
+            <animate attributeName="height" from="0" to="108.7" dur="0.55s" begin="0.74s" fill="freeze" calcMode="spline" keySplines="0.22 1 0.36 1" keyTimes="0;1" />
+            
+          </rect>
+          <text x="325.8" y="208" text-anchor="middle" class="label" font-size="9.5">Jul</text>
+        </g>
+        
+        <g>
+          <rect x="353.6" y="78" width="22.7" height="112" rx="5" fill="#1E293B" opacity="0.45" />
+          <rect x="353.6" y="190" width="22.7" height="0" rx="5" fill="url(#barGrad)">
+            
+            <animate attributeName="y" from="190" to="78.0" dur="0.55s" begin="0.78s" fill="freeze" calcMode="spline" keySplines="0.22 1 0.36 1" keyTimes="0;1" />
+            <animate attributeName="height" from="0" to="112.0" dur="0.55s" begin="0.78s" fill="freeze" calcMode="spline" keySplines="0.22 1 0.36 1" keyTimes="0;1" />
+            
+          </rect>
+          <text x="365.0" y="208" text-anchor="middle" class="label" font-size="9.5">Aug</text>
+        </g>
+        
+        <g>
+          <rect x="392.7" y="78" width="22.7" height="112" rx="5" fill="#1E293B" opacity="0.45" />
+          <rect x="392.7" y="190" width="22.7" height="0" rx="5" fill="url(#barGrad)">
+            
+            <animate attributeName="y" from="190" to="94.6" dur="0.55s" begin="0.82s" fill="freeze" calcMode="spline" keySplines="0.22 1 0.36 1" keyTimes="0;1" />
+            <animate attributeName="height" from="0" to="95.4" dur="0.55s" begin="0.82s" fill="freeze" calcMode="spline" keySplines="0.22 1 0.36 1" keyTimes="0;1" />
+            
+          </rect>
+          <text x="404.1" y="208" text-anchor="middle" class="label" font-size="9.5">Sep</text>
+        </g>
+        
+        <g>
+          <rect x="431.9" y="78" width="22.7" height="112" rx="5" fill="#1E293B" opacity="0.45" />
+          <rect x="431.9" y="190" width="22.7" height="0" rx="5" fill="url(#barGrad)">
+            
+            <animate attributeName="y" from="190" to="94.6" dur="0.55s" begin="0.85s" fill="freeze" calcMode="spline" keySplines="0.22 1 0.36 1" keyTimes="0;1" />
+            <animate attributeName="height" from="0" to="95.4" dur="0.55s" begin="0.85s" fill="freeze" calcMode="spline" keySplines="0.22 1 0.36 1" keyTimes="0;1" />
+            
+          </rect>
+          <text x="443.3" y="208" text-anchor="middle" class="label" font-size="9.5">Oct</text>
+        </g>
+        
+        <g>
+          <rect x="471.1" y="78" width="22.7" height="112" rx="5" fill="#1E293B" opacity="0.45" />
+          <rect x="471.1" y="190" width="22.7" height="0" rx="5" fill="url(#barGrad)">
+            
+            <animate attributeName="y" from="190" to="152.2" dur="0.55s" begin="0.89s" fill="freeze" calcMode="spline" keySplines="0.22 1 0.36 1" keyTimes="0;1" />
+            <animate attributeName="height" from="0" to="37.8" dur="0.55s" begin="0.89s" fill="freeze" calcMode="spline" keySplines="0.22 1 0.36 1" keyTimes="0;1" />
+            
+          </rect>
+          <text x="482.5" y="208" text-anchor="middle" class="label" font-size="9.5">Nov</text>
+        </g>
+        
+    
+        <g class="fade-up" style="--d: 0.16s">
+          <rect x="532" y="62" width="136" height="68" rx="12" fill="#1E293B" fill-opacity="0.6" stroke="#1E293B" />
+          <text x="546" y="82" class="label" font-size="9">CURRENT / MAX STREAK</text>
+          <text x="546" y="106" class="metric" font-size="19" fill="#38BDF8">0d</text>
+          <text x="546" y="121" class="body" font-size="10.5">Longest 10d</text>
+        </g>
+        
+        <g class="fade-up" style="--d: 0.16s">
+          <rect x="680" y="62" width="136" height="68" rx="12" fill="#1E293B" fill-opacity="0.6" stroke="#1E293B" />
+          <text x="694" y="82" class="label" font-size="9">ACTIVE DAYS (1Y)</text>
+          <text x="694" y="106" class="metric" font-size="19" fill="#818CF8">244</text>
+          <text x="694" y="121" class="body" font-size="10.5">of 367 tracked days</text>
+        </g>
+        
+        <g class="fade-up" style="--d: 0.16s">
+          <rect x="532" y="140" width="136" height="68" rx="12" fill="#1E293B" fill-opacity="0.6" stroke="#1E293B" />
+          <text x="546" y="160" class="label" font-size="9">BUSIEST DAY</text>
+          <text x="546" y="184" class="metric" font-size="19" fill="#34D399">15 commits</text>
+          <text x="546" y="199" class="body" font-size="10.5">Peak on Nov 24</text>
+        </g>
+        
+        <g class="fade-up" style="--d: 0.16s">
+          <rect x="680" y="140" width="136" height="68" rx="12" fill="#1E293B" fill-opacity="0.6" stroke="#1E293B" />
+          <text x="694" y="160" class="label" font-size="9">ANNUAL OUTPUT</text>
+          <text x="694" y="184" class="metric" font-size="19" fill="#F8FAFC">1,826</text>
+          <text x="694" y="199" class="body" font-size="10.5">Total contributions</text>
+        </g>
+        
+    
+  </g>
+</svg>

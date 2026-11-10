@@ -1,0 +1,88 @@
+name: Refresh Contribution Data & Render SVG Cards
+
+on:
+  schedule:
+    - cron: "0 6 * * *" # Runs daily at 06:00 UTC
+  workflow_dispatch: # Allows you to trigger it manually from the Actions tab
+
+permissions:
+  contents: write
+
+jobs:
+  update-readme-cards:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install fonttools for pyftsubset
+        run: pip install fonttools brotli
+
+      - name: Fetch daily contributions into data/contributions.json
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_USER: sahil-kumar-ai
+        run: |
+          mkdir -p data
+          python - << 'EOF'
+          import json, os, urllib.request
+
+          token = os.environ["GH_TOKEN"]
+          user = os.environ["GH_USER"]
+          query = """
+          query($login: String!) {
+            user(login: $login) {
+              contributionsCollection {
+                contributionCalendar {
+                  weeks {
+                    contributionDays {
+                      date
+                      contributionCount
+                    }
+                  }
+                }
+              }
+            }
+          }
+          """
+          req = urllib.request.Request(
+              "https://api.github.com/graphql",
+              data=json.dumps({"query": query, "variables": {"login": user}}).encode("utf-8"),
+              headers={
+                  "Authorization": f"Bearer {token}",
+                  "Content-Type": "application/json",
+                  "User-Agent": "sahil-kumar-ai-card-renderer",
+              },
+          )
+          with urllib.request.urlopen(req) as resp:
+              body = json.loads(resp.read().decode("utf-8"))
+
+          weeks = body["data"]["user"]["contributionsCollection"]["contributionCalendar"]["weeks"]
+          days = [
+              {"date": d["date"], "count": d["contributionCount"]}
+              for w in weeks
+              for d in w["contributionDays"]
+          ]
+          with open("data/contributions.json", "w", encoding="utf-8") as f:
+              json.dump({"user": user, "days": days}, f, indent=2)
+          EOF
+
+      - name: Render SVG card stack into cards/
+        run: python scripts/render_cards.py
+
+      - name: Commit and push updated JSON and SVG cards
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/contributions.json cards/*.svg
+          if git diff --cached --quiet; then
+            echo "No changes to commit."
+          else
+            git commit -m "chore(cards): refresh daily contributions and render SVG stack"
+            git push
+          fi
