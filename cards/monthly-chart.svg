@@ -25,8 +25,8 @@
       <text x="540" y="40" class="title">Active days</text>
       <text x="690" y="40" class="title">Annual output</text>
       
-      <text x="540" y="72" class="metric">86</text>
-      <text x="690" y="72" class="metric">470</text>
+      <text x="540" y="72" class="metric">87</text>
+      <text x="690" y="72" class="metric">487</text>
     </g>
     
         <g class="fade-up" style="--d: 0.1s">
@@ -85,7 +85,7 @@
         </g>
         
         <g class="fade-up" style="--d: 0.32s">
-          <rect x="450" y="102.0" width="24" height="30.0" rx="2" fill="#38BDF8" opacity="0.9" />
+          <rect x="450" y="95.5" width="24" height="36.5" rx="2" fill="#38BDF8" opacity="0.9" />
           <text x="462" y="156" text-anchor="middle" class="label" font-size="11">Nov</text>
         </g>
         
